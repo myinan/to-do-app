@@ -11,6 +11,7 @@
 
 :root {
     --bg-color-main: #1f2937;
+    --bg-color-sidebar: #111827;
     --header-border-color: #eed9c3;
 
     background-color: var(--bg-color-main);
@@ -23,6 +24,8 @@ body {
     display: grid;
     grid-template-rows: 80px 1fr;
     grid-template-columns: 320px 1fr;
+    height: 100vh;
+    cursor: default;
 }
 
 h1 {
@@ -42,6 +45,7 @@ h1 {
     gap: 15px;
     padding: 15px 20px;
     font-size: 1.5rem;
+    background-color: var(--bg-color-sidebar);
 }
 
 .sidebar-container h2 {
@@ -60,4 +64,29 @@ h1 {
     flex-direction: column;
     gap: 10px;
     padding: 0px 15px;
+}
+
+.home-inner-container > div {
+    padding: 2px 5px;
+}
+
+.home-inner-container > div:hover {
+    background-color: var(--bg-color-main);
+    cursor: pointer;
+    font-size: 1.8rem;
+    border-radius: 5px;
+}
+
+.main-container {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.todo-item-container {
+    position: relative;
+}
+
+.options-container {
+    position: absolute;
+    display: flex;
+    gap: 5px;
 }
