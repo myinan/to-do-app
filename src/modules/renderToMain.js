@@ -2,11 +2,11 @@ import favIcon from "../assets/favorite-icon.png";
 import editIcon from "../assets/edit-icon.png";
 import { tasksArrays } from "../index.js";
 
-const mainContainer = document.getElementById("main-container");
+const mainTodoContainer = document.getElementById("todo-container");
 const sidebarContainer = document.querySelector(".sidebar-container");
 
 function clear() {
-    mainContainer.innerHTML = "";
+    mainTodoContainer.innerHTML = "";
 }
 
 function renderSingleTodo(obj) {
@@ -45,7 +45,7 @@ function renderSingleTodo(obj) {
 
     rightInnerContainer.append(duedateParaf, favIconCopy, editIconCopy, deleteIcon);
     topContainer.append(leftInnerContainer, rightInnerContainer);
-    mainContainer.append(topContainer);
+    mainTodoContainer.append(topContainer);
 }
 
 function renderEachTodo(array) {

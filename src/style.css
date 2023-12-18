@@ -102,6 +102,12 @@ h1 {
     padding: 10px;
 }
 
+.main-container .todo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 .todo-item-container {
     position: relative;
     border: 1px solid var(--text-color);
@@ -220,4 +226,28 @@ h1 {
     position: absolute !important;
     max-height: 0 !important;
     opacity: 0 !important;
+}
+
+.task-add-button {
+    display: flex;
+    border: none;
+    background-color: var(--bg-color-main);
+    color: var(--text-color);
+    font-family: "Alata";
+    font-size: 1.2rem;
+    gap: 10px;
+    align-items: center;
+    padding: 2px 5px;
+    width: 20%;
+    border-radius: 10px;
+}
+
+.task-add-button:hover {
+    background-color: var(--bg-color-sidebar);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.task-add-button span {
+    font-size: 2rem;
 }
