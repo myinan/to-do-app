@@ -13,11 +13,13 @@
     --bg-color-main: #1f2937;
     --bg-color-sidebar: #111827;
     --header-border-color: #eed9c3;
+    --text-color: #e5e7eb;
+    --selected: #0f766e;
 
     background-color: var(--bg-color-main);
     font-family: "Alata";
     font-size: 16px;
-    color: #e5e7eb;
+    color: var(--text-color);
 }
 
 body {
@@ -79,14 +81,48 @@ h1 {
 
 .main-container {
     grid-area: 2 / 2 / 3 / 3;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
 }
 
 .todo-item-container {
     position: relative;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 70px;
+    padding: 5px 10px;
 }
 
-.options-container {
-    position: absolute;
+.todo-item-container:hover {
+    background-color: var(--bg-color-sidebar);
+    cursor: pointer;
+}
+
+.info-container {
     display: flex;
-    gap: 5px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info-container > p:nth-child(1) {
+    font-size: 1.5rem;
+}
+
+.right-inner-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: min-content;
+    gap: 15px;
+    font-size: 1.2rem;
+}
+
+.right-inner-container img {
+    height: 1.2rem;
+    width: 1.2rem;
 }
