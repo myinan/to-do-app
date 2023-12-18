@@ -6,6 +6,7 @@ export default class Project {
 
     constructor(name) {
         this.name = name;
+        this.id = name;
     }
 
     createTodo(title, description, duedate = "No Due Date") {
@@ -20,6 +21,7 @@ const projectsInnerContainer = document.getElementById("projects-inner-container
 
 export function renderProject(projectObj) {
     const projectDiv = document.createElement("div");
+    projectDiv.setAttribute("id", projectObj.id);
     projectDiv.innerText = projectObj.name;
 
     projectsInnerContainer.append(projectDiv);
