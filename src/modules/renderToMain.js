@@ -1,21 +1,9 @@
 import favIcon from "../assets/favorite-icon.png";
 import editIcon from "../assets/edit-icon.png";
-import Todo from "./todoCreator.js";
-import { events } from "./events.js";
-import { allTasks, todayTasks, nextSevenDaysTasks, importantTasks } from "./homeModule.js";
-import { projectsTasksArrays } from "../index.js";
+import { tasksArrays } from "../index.js";
 
-
-//Rendering of homeInnerContainer items to mainContainer
 const mainContainer = document.getElementById("main-container");
-const homeInnerContainer = document.getElementById("home-inner-container");
-
-const homeTasksArrays = {
-    allTasks,
-    todayTasks,
-    nextSevenDaysTasks,
-    importantTasks,
-};
+const sidebarContainer = document.querySelector(".sidebar-container");
 
 function clear() {
     mainContainer.innerHTML = "";
@@ -70,8 +58,8 @@ function renderHomeTasks(event) {
     clear();
     const clickedId = event.target.id;
 
-    if (Object.keys(homeTasksArrays).includes(clickedId)) {
-        renderEachTodo(homeTasksArrays[clickedId]);
+    if (Object.keys(tasksArrays).includes(clickedId)) {
+        renderEachTodo(tasksArrays[clickedId]);
     }
 }
 
@@ -85,46 +73,12 @@ function stylizeHomeClicked(event) {
     });
 
     const clickedId = event.target.id;
-    if (Object.keys(homeTasksArrays).includes(clickedId)) {
+    if (Object.keys(tasksArrays).includes(clickedId)) {
         event.target.classList.add("inner-container-clicked");
     }
 }
 
-
-export function renderHomeOnClick() {
-    homeInnerContainer.addEventListener("click", renderHomeTasks);
-    homeInnerContainer.addEventListener("click", stylizeHomeClicked);
-}
-
-
-// Rendering of projectsInnerContainer items to mainContainer
-// projectsTasksArrays is imported
-
-function renderProjectsTasks(event) {
-    clear();
-    const clickedId = event.target.id;
-
-    if (Object.keys(projectsTasksArrays).includes(clickedId)) {
-        renderEachTodo(projectsTasksArrays[clickedId]);
-    }
-}
-
-function stylizeProjectClicked(event) {
-    const sidebarElements = document.querySelectorAll(".inner-container div");
-    
-    sidebarElements.forEach(element => {
-        if(element.classList.contains("inner-container-clicked")) {
-            element.classList.remove("inner-container-clicked");
-        }
-    });
-
-    const clickedId = event.target.id;
-    if (Object.keys(projectsTasksArrays).includes(clickedId)) {
-        event.target.classList.add("inner-container-clicked");
-    }
-}
-
-export function renderProjectsOnClick() {
-    homeInnerContainer.addEventListener("click", renderProjectsTasks);
-    homeInnerContainer.addEventListener("click", stylizeProjectClicked);
+export function renderOnClick() {
+    sidebarContainer.addEventListener("click", renderHomeTasks);
+    sidebarContainer.addEventListener("click", stylizeHomeClicked);
 }

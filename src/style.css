@@ -72,7 +72,7 @@ h1 {
     padding: 2px 5px;
 }
 
-.inner-container > div:not(.home-inner-container-clicked):hover {
+.inner-container > div:not(.inner-container-clicked):hover {
     background-color: var(--bg-color-main);
     cursor: pointer;
     border-radius: 5px;

@@ -1,32 +1,37 @@
-import { format, addDays, parseISO, parse } from 'date-fns';
 import './style.css';
-import Todo from "./modules/todoCreator.js";
 import { events } from "./modules/events.js";
 import { allTasks, todayTasks, nextSevenDaysTasks, importantTasks } from './modules/homeModule.js';
-import { renderHomeOnClick, renderProjectsOnClick } from './modules/renderToMain.js';
+import { renderOnClick } from './modules/renderToMain.js';
 import Project, { renderProject } from "./modules/projectsModule.js";
 
-const newProject = new Project("Initial Project");
+const newProject = new Project("initialProject");
+const newProject2 = new Project("initialProject2");
 
 // Render the project item on the side container
 renderProject(newProject);
+renderProject(newProject2);
 
+//Create a todo item
 newProject.createTodo("Go shopping", "You need to buy new pants.");
+newProject.createTodo("Go fishing", "You need to buy new bait.");
+newProject.createTodo("Go jogging", "You need to exercise.", "20/12/2023");
+newProject.createTodo("Eat dinner", "", "18/12/2023");
 
-console.log(newProject.todoArr)
+newProject2.createTodo("Go shopping", "You need to buy new pants.");
+newProject2.createTodo("Go fishing", "You need to buy new bait.");
+newProject2.createTodo("Go jogging", "You need to exercise.", "20/12/2023");
+newProject2.createTodo("Eat dinner", "", "18/12/2023");
 
-// Render clicked Home todo items to the main container
-renderHomeOnClick();
+// Render clicked todo items to the main container
+renderOnClick();
 
-const id = newProject.id;
+const tasksArrays = {
+    allTasks,
+    todayTasks,
+    nextSevenDaysTasks,
+    importantTasks,
+};
 
-export const projectsTasksArrays = {};
-
-projectsTasksArrays[id] = newProject.todoArr;
-
-console.log(projectsTasksArrays[id]);
-
-console.log(projectsTasksArrays);
-
-// Render clicked Project todo items to the main container
-renderProjectsOnClick();
+tasksArrays[newProject.id] = newProject.todoArr;
+tasksArrays[newProject2.id] = newProject2.todoArr;
+export { tasksArrays };
