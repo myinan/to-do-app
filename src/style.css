@@ -15,6 +15,10 @@
     --header-border-color: #eed9c3;
     --text-color: #e5e7eb;
     --selected: #0f766e;
+    --accentGreen: #2abd67;
+    --accentDarkGreen: #1f8d4d;
+    --accentRed: red;
+    --accentDarkRed: rgb(190, 4, 4);
 
     background-color: var(--bg-color-main);
     font-family: "Alata";
@@ -136,4 +140,84 @@ h1 {
 .right-inner-container img {
     height: 1.2rem;
     width: 1.2rem;
+}
+
+.project-add-button {
+    display: flex;
+    border: none;
+    background-color: var(--bg-color-sidebar);
+    color: var(--text-color);
+    font-family: "Alata";
+    font-size: 1.2rem;
+    gap: 10px;
+    align-items: center;
+    padding: 2px 5px;
+}
+
+.project-add-button:hover {
+    background-color: var(--bg-color-main);
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.project-add-button span {
+    font-size: 2rem;
+}
+
+.projects-container form {
+    font-family: "Alata";
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.input-buttons-container {
+    display: flex;
+    gap: 7px;
+    justify-content: center;
+}
+
+#project-input {
+    height: 30px;
+    font-family: "Alata";
+    font-size: 1rem;
+}
+
+.input-buttons-container input {
+    font-family: "Alata";
+    font-size: 1rem;
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+}
+
+.input-buttons-container input:hover {
+    cursor: pointer;
+}
+
+.input-buttons-container input:nth-child(1) {
+    background-color: var(--accentGreen);
+}
+
+.input-buttons-container input:nth-child(1):hover {
+    background-color: var(--accentDarkGreen);
+}
+
+.input-buttons-container input:nth-child(2) {
+    background-color: var(--accentRed);
+}
+
+.input-buttons-container input:nth-child(2):hover {
+    background-color: var(--accentDarkRed);
+}
+
+.hidden {
+    top: 0;
+    left: 0;
+    pointer-events: none !important;
+    position: absolute !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
 }

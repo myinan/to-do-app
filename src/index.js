@@ -3,8 +3,11 @@ import { events } from "./modules/events.js";
 import { allTasks, todayTasks, nextSevenDaysTasks, importantTasks } from './modules/homeModule.js';
 import { renderOnClick } from './modules/renderToMain.js';
 import Project, { renderProject } from "./modules/projectsModule.js";
+import { addProjectOnClick } from './modules/createProjectFunc.js';
 
-const newProject = new Project("initialProject");
+addProjectOnClick();
+
+/* const newProject = new Project("initialProject");
 const newProject2 = new Project("initialProject2");
 
 // Render the project item on the side container
@@ -21,7 +24,7 @@ newProject2.createTodo("Go shopping", "You need to buy new pants.");
 newProject2.createTodo("Go fishing", "You need to buy new bait.");
 newProject2.createTodo("Go jogging", "You need to exercise.", "20/12/2023");
 newProject2.createTodo("Eat dinner", "", "18/12/2023");
-
+ */
 // Render clicked todo items to the main container
 renderOnClick();
 
@@ -32,6 +35,6 @@ const tasksArrays = {
     importantTasks,
 };
 
-tasksArrays[newProject.id] = newProject.todoArr;
-tasksArrays[newProject2.id] = newProject2.todoArr;
+/* tasksArrays[newProject.id] = newProject.todoArr;
+tasksArrays[newProject2.id] = newProject2.todoArr; */
 export { tasksArrays };

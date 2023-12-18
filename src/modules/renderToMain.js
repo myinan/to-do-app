@@ -55,25 +55,23 @@ function renderEachTodo(array) {
 }
 
 function renderHomeTasks(event) {
-    clear();
     const clickedId = event.target.id;
-
     if (Object.keys(tasksArrays).includes(clickedId)) {
+        clear();
         renderEachTodo(tasksArrays[clickedId]);
     }
 }
 
 function stylizeHomeClicked(event) {
-    const sidebarElements = document.querySelectorAll(".inner-container div");
-    
-    sidebarElements.forEach(element => {
-        if(element.classList.contains("inner-container-clicked")) {
-            element.classList.remove("inner-container-clicked");
-        }
-    });
-
     const clickedId = event.target.id;
     if (Object.keys(tasksArrays).includes(clickedId)) {
+        const sidebarElements = document.querySelectorAll(".inner-container div");
+        sidebarElements.forEach(element => {
+            if(element.classList.contains("inner-container-clicked")) {
+                element.classList.remove("inner-container-clicked");
+            }
+        });
+
         event.target.classList.add("inner-container-clicked");
     }
 }
