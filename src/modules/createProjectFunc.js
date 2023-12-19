@@ -20,6 +20,9 @@ function handleClick(event) {
 
         newProject.createTodo("Go shopping", "You need to buy new pants.");
         tasksArrays[newProject.id] = newProject.todoArr;
+        console.log(newProject.todoArr[0]);
+        console.log(newProject);
+        console.log(tasksArrays);
     }
     else if (event.target.value == "Cancel") {
         form.classList.add("hidden");

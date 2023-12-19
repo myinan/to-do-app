@@ -6,11 +6,11 @@ export default class Project {
 
     constructor(name) {
         this.name = name;
-        this.id = name;
+        this.id = `project${Math.floor(Math.random() * 1000000)}`;
     }
 
-    createTodo(title, description, duedate = "No Due Date") {
-        const newTodo = new Todo(title, description, duedate);
+    createTodo(title, description, duedate = "No Due Date", priority = "Regular") {
+        const newTodo = new Todo(title, description, duedate, priority, this.id);
         this.todoArr.push(newTodo);
         events.emit("todoAdded", newTodo);
     }
