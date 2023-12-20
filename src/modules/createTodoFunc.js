@@ -15,7 +15,9 @@ function addNewTodo(event) {
         if (project.id == currentProjectId) {
             project.createTodo("Go shopping", "You need to buy new pants.");
 
-            
+            //Render the current Project's all todos upon confirm button click
+            const projectToRender = document.querySelector('.inner-container-clicked');
+            projectToRender.click();
         }
     })
 
@@ -26,12 +28,6 @@ function addNewTodo(event) {
     dialog.close();
 }
 
-export function addTaskBtnClicked() {
-    taskAddButton.addEventListener("click", () => dialog.showModal());
-    cancelBtn.addEventListener("click", () => dialog.close());
-    confirmBtn.addEventListener("click", addNewTodo);
-}
-
 function resetForm() {
     // Reset input values to empty strings
     document.getElementById('title').value = '';
@@ -40,3 +36,9 @@ function resetForm() {
 
     document.getElementById('regular').checked = true;
 };
+
+export function addTaskBtnClicked() {
+    taskAddButton.addEventListener("click", () => dialog.showModal());
+    cancelBtn.addEventListener("click", () => dialog.close());
+    confirmBtn.addEventListener("click", addNewTodo);
+}
