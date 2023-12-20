@@ -14,6 +14,9 @@ function renderSingleTodo(obj) {
     const topContainer = document.createElement("div");
     topContainer.classList.add("todo-item-container");
 
+    topContainer.setAttribute("data-todo-id",obj.id);
+    topContainer.setAttribute("data-parent-id", obj.projectId);
+
     // This inner container contains title and description of the todo
     const leftInnerContainer = document.createElement("div");
     leftInnerContainer.classList.add("info-container");

@@ -1,8 +1,5 @@
 import Project, { renderProject } from "./projectsModule.js";
-import { tasksArrays } from "../index.js";
 
-const mainContainer = document.getElementById("main-container");
-const projectsInnerContainer = document.querySelector("#projects-inner-container");
 const createProjectButton = document.querySelector(".project-add-button");
 const form = document.querySelector("#project-form");
 const input = document.querySelector("#project-input");

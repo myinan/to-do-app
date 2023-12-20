@@ -1,7 +1,6 @@
 import { projectsArr } from "./createProjectFunc";
 
 const taskAddButton = document.querySelector("#task-add-button");
-const mainContainer = document.getElementById("main-container");
 
 const dialog = document.querySelector("dialog");
 const cancelBtn = document.querySelector("#cancelBtn")
