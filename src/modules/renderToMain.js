@@ -1,5 +1,5 @@
-import favIcon from "../assets/favorite-icon.png";
-import editIcon from "../assets/edit-icon.png";
+import deleteIcon from "../assets/delete-icon.svg";
+import editIcon from "../assets/edit-icon.svg";
 import { tasksArrays } from "./projectsModule.js";
 
 const mainTodoContainer = document.getElementById("todo-container");
@@ -36,17 +36,14 @@ function renderSingleTodo(obj) {
     const duedateParaf = document.createElement("p");
     duedateParaf.innerText = obj.duedate;
 
-    // Create copies of favorite and edit icons
-    const favIconCopy = new Image();
-    favIconCopy.src = favIcon;
-
+    // Create copy of the edit and delete icons
     const editIconCopy = new Image();
     editIconCopy.src = editIcon;
 
-    //Create the delete button
-    const deleteIcon = "X";
+    const deleteIconCopy = new Image();
+    deleteIconCopy.src = deleteIcon;
 
-    rightInnerContainer.append(duedateParaf, favIconCopy, editIconCopy, deleteIcon);
+    rightInnerContainer.append(duedateParaf, editIconCopy, deleteIconCopy);
     topContainer.append(leftInnerContainer, rightInnerContainer);
     mainTodoContainer.append(topContainer);
 }

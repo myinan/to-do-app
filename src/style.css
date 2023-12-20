@@ -144,8 +144,8 @@ h1 {
 }
 
 .right-inner-container img {
-    height: 1.2rem;
-    width: 1.2rem;
+    height: 1.5rem;
+    width: 1.5rem;
 }
 
 .project-add-button {
@@ -316,4 +316,4 @@ input[type= "text"] {
 ::backdrop {
     background-color: black;
     opacity: 0.7;
-  }
+}
