@@ -1,13 +1,42 @@
-import { tasksArrays } from "../index.js";
+import { projectsArr } from "./createProjectFunc";
 
-/* createdProjects[0].createTodo("Go shopping", "You need to buy new pants.");
-tasksArrays[createdProjects[0].id] = createdProjects[0].todoArr; */
+const taskAddButton = document.querySelector("#task-add-button");
+const mainContainer = document.getElementById("main-container");
 
-const mainTodoContainer = document.getElementById("todo-container");
-const sidebarContainer = document.querySelector(".sidebar-container");
+const dialog = document.querySelector("dialog");
+const cancelBtn = document.querySelector("#cancelBtn")
+const confirmBtn = document.querySelector("#confirmBtn")
 
-function func(event) {
-    console.log(event.target.id[0]);
+function addNewTodo(event) {
+    event.preventDefault();
+
+    const currentProjectId = document.querySelector("#task-add-button").getAttribute("data-project-id");
+    projectsArr.forEach((project) => {
+        if (project.id == currentProjectId) {
+            project.createTodo("Go shopping", "You need to buy new pants.");
+
+            
+        }
+    })
+
+    // Reset inputs to empty strings
+    resetForm();
+
+    // Close the dialog
+    dialog.close();
 }
 
-sidebarContainer.addEventListener("click", func)
+export function addTaskBtnClicked() {
+    taskAddButton.addEventListener("click", () => dialog.showModal());
+    cancelBtn.addEventListener("click", () => dialog.close());
+    confirmBtn.addEventListener("click", addNewTodo);
+}
+
+function resetForm() {
+    // Reset input values to empty strings
+    document.getElementById('title').value = '';
+    document.getElementById('description').value = '';
+    document.getElementById('duedate').value = '';
+
+    document.getElementById('regular').checked = true;
+};

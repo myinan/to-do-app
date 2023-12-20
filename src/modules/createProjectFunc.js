@@ -7,6 +7,8 @@ const createProjectButton = document.querySelector(".project-add-button");
 const form = document.querySelector("#project-form");
 const input = document.querySelector("#project-input");
 
+const projectsArr = [];
+
 function removeHidden() {
     form.classList.remove("hidden");
 }
@@ -18,12 +20,14 @@ function handleClick(event) {
         renderProject(newProject);
         form.classList.add("hidden");
 
-        newProject.createTodo("Go shopping", "You need to buy new pants.");
+        projectsArr.push(newProject);
+
+/*         newProject.createTodo("Go shopping", "You need to buy new pants.");
         tasksArrays[newProject.id] = newProject.todoArr;
         console.log(newProject.todoArr[0]);
         console.log(newProject);
         console.log(tasksArrays);
-        console.log(event.target.id);
+        console.log(event.target.id); */
     }
     else if (event.target.value == "Cancel") {
         form.classList.add("hidden");
@@ -34,3 +38,5 @@ export function addProjectOnClick() {
     createProjectButton.addEventListener("click", removeHidden);
     form.addEventListener("click", handleClick);
 }
+
+export { projectsArr };

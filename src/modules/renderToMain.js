@@ -1,6 +1,6 @@
 import favIcon from "../assets/favorite-icon.png";
 import editIcon from "../assets/edit-icon.png";
-import { tasksArrays } from "../index.js";
+import { tasksArrays } from "./projectsModule.js";
 
 const mainTodoContainer = document.getElementById("todo-container");
 const sidebarContainer = document.querySelector(".sidebar-container");
@@ -78,8 +78,9 @@ function stylizeClicked(event) {
 
 function showAddTaskButton(event) {
     const taskAddButton = document.querySelector("#task-add-button");
-    if (event.target.id.includes("project")) {  
+    if (event.target.getAttribute("data-project-id")) {  
         taskAddButton.classList.remove("hidden");
+        taskAddButton.setAttribute("data-project-id", event.target.getAttribute("data-project-id"))
     }
     else {
         taskAddButton.classList.add("hidden");

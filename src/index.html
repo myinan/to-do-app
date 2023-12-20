@@ -41,5 +41,38 @@
         <div id="todo-container" class="todo-container"></div>
         <button id="task-add-button" class="task-add-button hidden"><span>+</span>Add Task</button>
     </div>
+
+    <dialog>
+        <form method="dialog">
+            <div>
+                <label for="title">Title: </label>
+                <input type="text" id="title" name="title">
+            </div>
+            <div>
+                <label for="description">Description: </label>
+                <input type="text" id="description" name="description">
+            </div>
+            <div>
+                <label for="duedate">Due date: </label>
+                <input type="text" id="duedate" name="duedate">
+            </div>
+            <div>
+                <p>Importance: </p>
+                <div>
+                    <label for="important">Important</label>
+                    <input type="radio" id="important" name="importance-status" value="Important">
+                </div>
+                <div>
+                    <label for="regular">Regular</label>
+                    <input type="radio" id="regular" name="importance-status" value="Regular" checked>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancelBtn">Cancel</button>
+                <button type="submit" id="confirmBtn">Confirm</button>
+            </div>    
+        </form>
+    </dialog>
+
 </body>
 </html>

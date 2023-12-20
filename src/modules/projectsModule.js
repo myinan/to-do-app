@@ -1,5 +1,6 @@
 import Todo from "./todoCreator.js";
 import { events } from "./events.js";
+import { tasksArrays } from "../index.js";
 
 export default class Project {
     todoArr = [];
@@ -22,7 +23,12 @@ const projectsInnerContainer = document.getElementById("projects-inner-container
 export function renderProject(projectObj) {
     const projectDiv = document.createElement("div");
     projectDiv.setAttribute("id", projectObj.id);
+    projectDiv.setAttribute("data-project-id", projectObj.id);
     projectDiv.innerText = projectObj.name;
+
+    tasksArrays[projectObj.id] = projectObj.todoArr;
 
     projectsInnerContainer.append(projectDiv);
 }
+
+export { tasksArrays };

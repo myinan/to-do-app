@@ -4,6 +4,7 @@ import { allTasks, todayTasks, nextSevenDaysTasks, importantTasks } from './modu
 import { renderOnClick } from './modules/renderToMain.js';
 import Project, { renderProject } from "./modules/projectsModule.js";
 import { addProjectOnClick } from './modules/createProjectFunc.js';
+import { addTaskBtnClicked } from './modules/createTodoFunc.js';
 
 export const tasksArrays = {
     allTasks,
@@ -14,3 +15,4 @@ export const tasksArrays = {
 
 addProjectOnClick();
 renderOnClick();
+addTaskBtnClicked();
