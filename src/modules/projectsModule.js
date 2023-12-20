@@ -15,6 +15,15 @@ export default class Project {
         this.todoArr.push(newTodo);
         events.emit("todoAdded", newTodo);
     }
+
+    removeTodo(todoId) {
+        this.todoArr.forEach((todo, index) => {
+            if (todoId == todo.id) {
+                this.todoArr.splice(index, 1);
+                events.emit("todoRemoved", todo);
+            }
+        })
+    }
 }
 
 // Function to render the project item to the side container

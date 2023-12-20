@@ -42,6 +42,7 @@ function renderSingleTodo(obj) {
 
     const deleteIconCopy = new Image();
     deleteIconCopy.src = deleteIcon;
+    deleteIconCopy.setAttribute("data-icon-type", "delete-icon");
 
     rightInnerContainer.append(duedateParaf, editIconCopy, deleteIconCopy);
     topContainer.append(leftInnerContainer, rightInnerContainer);
