@@ -22,7 +22,7 @@
         <div class="projects-container">
             <h2>Projects</h2>
             <div id="projects-inner-container" class="inner-container"></div>
-            <form id="project-form" class="hidden">
+            <form id="project-form" class="hidden" autocomplete="off">
                 <input id="project-input" type="input" maxlength="24" placeholder="Enter project name">
                 <div class="input-buttons-container">
                     <input type="submit" value="Add">
@@ -39,7 +39,7 @@
 
     <div id="main-container" class="main-container">
         <div id="todo-container" class="todo-container"></div>
-        <button class="task-add-button"><span>+</span>Add Task</button>
+        <button id="task-add-button" class="task-add-button hidden"><span>+</span>Add Task</button>
     </div>
 </body>
 </html>

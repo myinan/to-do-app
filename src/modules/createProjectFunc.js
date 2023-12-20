@@ -23,6 +23,7 @@ function handleClick(event) {
         console.log(newProject.todoArr[0]);
         console.log(newProject);
         console.log(tasksArrays);
+        console.log(event.target.id);
     }
     else if (event.target.value == "Cancel") {
         form.classList.add("hidden");

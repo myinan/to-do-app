@@ -62,7 +62,7 @@ function renderHomeTasks(event) {
     }
 }
 
-function stylizeHomeClicked(event) {
+function stylizeClicked(event) {
     const clickedId = event.target.id;
     if (Object.keys(tasksArrays).includes(clickedId)) {
         const sidebarElements = document.querySelectorAll(".inner-container div");
@@ -76,7 +76,18 @@ function stylizeHomeClicked(event) {
     }
 }
 
+function showAddTaskButton(event) {
+    const taskAddButton = document.querySelector("#task-add-button");
+    if (event.target.id.includes("project")) {  
+        taskAddButton.classList.remove("hidden");
+    }
+    else {
+        taskAddButton.classList.add("hidden");
+    }
+}
+
 export function renderOnClick() {
     sidebarContainer.addEventListener("click", renderHomeTasks);
-    sidebarContainer.addEventListener("click", stylizeHomeClicked);
+    sidebarContainer.addEventListener("click", stylizeClicked);
+    sidebarContainer.addEventListener("click", showAddTaskButton);
 }
