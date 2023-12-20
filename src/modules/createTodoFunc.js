@@ -13,19 +13,38 @@ function addNewTodo(event) {
     const currentProjectId = document.querySelector("#task-add-button").getAttribute("data-project-id");
     projectsArr.forEach((project) => {
         if (project.id == currentProjectId) {
-            project.createTodo("Go shopping", "You need to buy new pants.");
+            // Get user input
+            const title = document.querySelector("#title");
+            const description = document.querySelector("#description");
+            const duedate = document.querySelector("#duedate");
+
+            const defaultDuedate = "No Due Date";
+
+            // Check if title is empty
+            if (title.value.trim() === "") {
+                alert("Please provide a title.");
+                return;
+            }
+
+            // Call the method to create a todo item
+            // Check for empty duedate.value
+            project.createTodo(
+                title.value,
+                description.value,
+                duedate.value !== "" ? duedate.value : defaultDuedate
+            );
 
             //Render the current Project's all todos upon confirm button click
             const projectToRender = document.querySelector('.inner-container-clicked');
             projectToRender.click();
+
+            // Reset inputs to empty strings
+            resetForm();
+
+            // Close the dialog
+            dialog.close();
         }
     })
-
-    // Reset inputs to empty strings
-    resetForm();
-
-    // Close the dialog
-    dialog.close();
 }
 
 function resetForm() {

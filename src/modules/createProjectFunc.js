@@ -16,18 +16,18 @@ function removeHidden() {
 function handleClick(event) {
     if (event.target.value == "Add") {
         event.preventDefault();
+
+        if ( input.value.length < 1) { 
+            alert("Project name has to be at least 1 character.")
+            return;
+        }
+
         const newProject = new Project(`${input.value}`);
         renderProject(newProject);
+        input.value = "";
         form.classList.add("hidden");
 
         projectsArr.push(newProject);
-
-/*         newProject.createTodo("Go shopping", "You need to buy new pants.");
-        tasksArrays[newProject.id] = newProject.todoArr;
-        console.log(newProject.todoArr[0]);
-        console.log(newProject);
-        console.log(tasksArrays);
-        console.log(event.target.id); */
     }
     else if (event.target.value == "Cancel") {
         form.classList.add("hidden");
