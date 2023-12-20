@@ -53,7 +53,7 @@ events.on("todoAdded", addToNextSevenDaysTasks);
 export const importantTasks = [];
 
 function addToImportantTasks(obj) {
-    if (obj.priority == "important") {
+    if (obj.priority == "Important") {
         importantTasks.push(obj);
     }
 }

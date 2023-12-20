@@ -17,6 +17,7 @@ function addNewTodo(event) {
             const title = document.querySelector("#title");
             const description = document.querySelector("#description");
             const duedate = document.querySelector("#duedate");
+            const priority = document.querySelector(`input[name="priority-status"]:checked`);
 
             const defaultDuedate = "No Due Date";
 
@@ -31,7 +32,8 @@ function addNewTodo(event) {
             project.createTodo(
                 title.value,
                 description.value,
-                duedate.value !== "" ? duedate.value : defaultDuedate
+                duedate.value !== "" ? duedate.value : defaultDuedate,
+                priority.value
             );
 
             //Render the current Project's all todos upon confirm button click
