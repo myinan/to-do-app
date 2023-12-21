@@ -33,6 +33,7 @@ export default class Project {
                 todo.duedate = newInfoObj.newDuedate;
                 todo.priority = newInfoObj.newPriority;
                 events.emit("todoEdited", todo);
+                console.log(newInfoObj);
             }
         })
     }

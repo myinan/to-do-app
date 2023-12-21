@@ -7,7 +7,7 @@ const dialog = document.querySelector(`dialog[id="edit-dialog"]`);
 const title = document.querySelector("#edit-title");
 const description = document.querySelector("#edit-description");
 const duedate = document.querySelector("#edit-duedate");
-const priority = document.querySelector(`input[name="edit-priority-status"]:checked`);
+const priorityRadios = document.querySelectorAll(`input[name="edit-priority-status"]`); // ????
 const defaultDuedate = "No Due Date";
 
 const cancelBtn = document.querySelector(`button[id="edit-cancelBtn"]`)
@@ -18,7 +18,6 @@ let currentlyEditedTodo;
 
 function editButtonClicked(event) {
     if( event.target.getAttribute("data-icon-type") == "edit-icon") {
-
         //Show the dialog upon edit button click
         dialog.showModal();
 
@@ -47,10 +46,23 @@ function showTodoPropOnDialog(todo) {
     title.value = todo.title;
     description.value = todo.description;
     duedate.value = todo.duedate;
-    priority.value = todo.priority;
+
+    priorityRadios.forEach((radio) => {
+        if (radio.value == todo.priority) {
+            radio.checked = true;
+        }
+    })
 }
 
-function confirmButtonClicked() {
+function confirmButtonClicked(event) {
+    event.preventDefault();
+    let checkedRadioValue;
+
+    priorityRadios.forEach((radio) => {
+        if (radio.checked) {
+            checkedRadioValue = radio.value;
+        }
+    })
     // Check if title is empty
     if (title.value.trim() === "") {
         alert("Please provide a title.");
@@ -61,7 +73,7 @@ function confirmButtonClicked() {
         newTitle: title.value,
         newDescription: description.value,
         newDuedate: duedate.value !== "" ? duedate.value : defaultDuedate,
-        newPriority: priority.value,
+        newPriority: checkedRadioValue,
     }
 
     projectsArr.forEach((project) => {
