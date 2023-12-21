@@ -42,7 +42,9 @@ function changeProjectName(event) {
     projectsArr.forEach((project) => {
         if (project.id == selectedProject.id) {
             project.name = inputField.value;
-            currentProjectDiv.firstElementChild.innerText = project.name;
+
+            //Rerender project name
+            currentProjectDiv.firstChild.textContent = project.name;
         }
     })
     editProjectForm.classList.add("hidden");
