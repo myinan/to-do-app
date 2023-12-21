@@ -93,5 +93,17 @@ function removeFromImportantTasks(todoItem) {
     })
 }
 
+function checkIfImportant(todoItem) {
+    importantTasks.forEach((todo, index) => {
+        if (todoItem.id == todo.id) { // Means edited todo already exists in importantTasks array
+            if (todoItem.priority == "Regular") { // If priority of the edited todoItem is Regular, remove it from array
+                importantTasks.splice(index, 1);
+            }
+        }
+    })
+    addToImportantTasks(todoItem);
+}
+
 events.on("todoAdded", addToImportantTasks);
 events.on("todoRemoved", removeFromImportantTasks);
+events.on("todoEdited", checkIfImportant);
