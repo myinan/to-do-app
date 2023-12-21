@@ -1,5 +1,5 @@
 import { events } from "./events.js";
-import { format, addDays, isAfter, parse } from 'date-fns';
+import { format, addDays, isAfter, parse, isDate } from 'date-fns';
 
 const currentDate = new Date();
 
@@ -72,8 +72,20 @@ function removeFromNextSevenDaysTasks(todoItem) {
     })
 }
 
+function checkIfInNextSevenDays(todoItem) {
+    nextSevenDaysTasks.forEach((todo, index) => {
+        if ( (todoItem.id == todo.id) && (!(isDateWithin7Days(todoItem.duedate))) ) {
+                nextSevenDaysTasks.splice(index, 1);
+            }
+        })
+    if ( !(nextSevenDaysTasks.some((todo) => todoItem.id == todo.id )) ) {
+        addToNextSevenDaysTasks(todoItem);
+    }
+}
+
 events.on("todoAdded", addToNextSevenDaysTasks);
 events.on("todoRemoved", removeFromNextSevenDaysTasks);
+events.on("todoEdited", checkIfInNextSevenDays)
 
 
 // "Important" header.
@@ -95,13 +107,13 @@ function removeFromImportantTasks(todoItem) {
 
 function checkIfImportant(todoItem) {
     importantTasks.forEach((todo, index) => {
-        if (todoItem.id == todo.id) { // Means edited todo already exists in importantTasks array
-            if (todoItem.priority == "Regular") { // If priority of the edited todoItem is Regular, remove it from array
-                importantTasks.splice(index, 1);
+        if ( (todoItem.id == todo.id) && ((todoItem.priority == "Regular")) ) {
+                nextSevenDaysTasks.splice(index, 1);
             }
-        }
-    })
-    addToImportantTasks(todoItem);
+        })
+    if ( !(importantTasks.some((todo) => todoItem.id == todo.id )) ) {
+        addToImportantTasks(todoItem);
+    }
 }
 
 events.on("todoAdded", addToImportantTasks);
