@@ -42,8 +42,22 @@ function removeFromTodayTasks(todoItem) {
     })
 }
 
+function checkIfToday(todoItem) {
+    const formattedCurrentDate = format(currentDate, 'dd/MM/yyyy');
+
+    todayTasks.forEach((todo, index) => {
+        if ( (todoItem.id == todo.id) && (!(todoItem.duedate == formattedCurrentDate)) ) {
+            todayTasks.splice(index, 1);
+        }
+    })
+    if ( !(todayTasks.some((todo) => todoItem.id == todo.id )) ) {
+        addToTodayTasks(todoItem)
+    }
+}
+
 events.on("todoAdded", addToTodayTasks);
 events.on("todoRemoved", removeFromTodayTasks);
+events.on("todoEdited", checkIfToday);
 
 
 // "Next 7 Days" header.
@@ -108,7 +122,7 @@ function removeFromImportantTasks(todoItem) {
 function checkIfImportant(todoItem) {
     importantTasks.forEach((todo, index) => {
         if ( (todoItem.id == todo.id) && ((todoItem.priority == "Regular")) ) {
-                nextSevenDaysTasks.splice(index, 1);
+                importantTasks.splice(index, 1);
             }
         })
     if ( !(importantTasks.some((todo) => todoItem.id == todo.id )) ) {
