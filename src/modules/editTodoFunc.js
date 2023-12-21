@@ -3,8 +3,18 @@ import { projectsArr } from "./createProjectFunc";
 const todoContainer = document.querySelector("#todo-container");
 
 const dialog = document.querySelector(`dialog[id="edit-dialog"]`);
+
+const title = document.querySelector("#edit-title");
+const description = document.querySelector("#edit-description");
+const duedate = document.querySelector("#edit-duedate");
+const priority = document.querySelector(`input[name="edit-priority-status"]:checked`);
+const defaultDuedate = "No Due Date";
+
 const cancelBtn = document.querySelector(`button[id="edit-cancelBtn"]`)
 const confirmBtn = document.querySelector(`button[id="edit-confirmBtn"]`)
+
+let currentProject;
+let currentlyEditedTodo;
 
 function editButtonClicked(event) {
     if( event.target.getAttribute("data-icon-type") == "edit-icon") {
@@ -24,6 +34,8 @@ function editButtonClicked(event) {
                 project.todoArr.forEach((todo) => {
                     if (todoItemId == todo.id) {
                         showTodoPropOnDialog(todo);
+                        currentlyEditedTodo = todo;
+                        currentProject = project;
                     }
                 })
             }
@@ -32,17 +44,35 @@ function editButtonClicked(event) {
 }
 
 function showTodoPropOnDialog(todo) {
-    const title = document.querySelector("#edit-title");
-    const description = document.querySelector("#edit-description");
-    const duedate = document.querySelector("#edit-duedate");
-    const priority = document.querySelector(`input[name="edit-priority-status"]:checked`);
-
     title.value = todo.title;
     description.value = todo.description;
     duedate.value = todo.duedate;
+    priority.value = todo.priority;
 }
 
 function confirmButtonClicked() {
+    // Check if title is empty
+    if (title.value.trim() === "") {
+        alert("Please provide a title.");
+        return;
+    }
+
+    const newInfoObj = {
+        newTitle: title.value,
+        newDescription: description.value,
+        newDuedate: duedate.value !== "" ? duedate.value : defaultDuedate,
+        newPriority: priority.value,
+    }
+
+    projectsArr.forEach((project) => {
+        if ( project.id == currentProject.id) {
+            currentProject.editTodo(currentlyEditedTodo, newInfoObj);
+        }
+    })
+
+    //Render the current Project's all todos upon confirm button click
+    const projectToRender = document.querySelector('.inner-container-clicked');
+    projectToRender.click();
 
     // Close the dialog
     dialog.close();

@@ -24,6 +24,18 @@ export default class Project {
             }
         })
     }
+
+    editTodo(editedTodo, newInfoObj) {
+        this.todoArr.forEach((todo) => {
+            if (todo.id == editedTodo.id) {
+                todo.title = newInfoObj.newTitle;
+                todo.description = newInfoObj.newDescription;
+                todo.duedate = newInfoObj.newDuedate;
+                todo.priority = newInfoObj.newPriority;
+                events.emit("todoEdited", todo);
+            }
+        })
+    }
 }
 
 // Function to render the project item to the side container
