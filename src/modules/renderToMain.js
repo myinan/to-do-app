@@ -39,6 +39,7 @@ function renderSingleTodo(obj) {
     // Create copy of the edit and delete icons
     const editIconCopy = new Image();
     editIconCopy.src = editIcon;
+    editIconCopy.setAttribute("data-icon-type", "edit-icon");
 
     const deleteIconCopy = new Image();
     deleteIconCopy.src = deleteIcon;

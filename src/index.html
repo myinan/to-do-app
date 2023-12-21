@@ -74,5 +74,37 @@
         </form>
     </dialog>
 
+    <dialog id="edit-dialog">
+        <form method="dialog">
+            <div>
+                <label for="edit-title">Title: </label>
+                <input type="text" id="edit-title" name="edit-title">
+            </div>
+            <div>
+                <label for="edit-description">Description (Optional): </label>
+                <input type="text" id="edit-description" name="edit-description">
+            </div>
+            <div>
+                <label for="edit-duedate">Due date (Optional): </label>
+                <input type="text" id="edit-duedate" name="edit-duedate" placeholder="dd/mm/yyyy">
+            </div>
+            <div>
+                <p>Priority: </p>
+                <div>
+                    <label for="edit-important">Important</label>
+                    <input type="radio" id="edit-important" name="edit-priority-status" value="Important">
+                </div>
+                <div>
+                    <label for="edit-regular">Regular</label>
+                    <input type="radio" id="edit-regular" name="edit-priority-status" value="Regular" checked>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="edit-cancelBtn">Cancel</button>
+                <button type="submit" id="edit-confirmBtn">Confirm</button>
+            </div>    
+        </form>
+    </dialog>
+
 </body>
 </html>
