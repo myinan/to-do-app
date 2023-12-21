@@ -317,3 +317,24 @@ input[type= "text"] {
     background-color: black;
     opacity: 0.7;
 }
+
+.sidebar-container [data-project-id] {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#options-container {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+#options-container img {
+    height: 22px;
+    width: 22px;
+}
+
+#options-container img:hover {
+    cursor: pointer;
+}

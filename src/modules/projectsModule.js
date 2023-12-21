@@ -1,6 +1,8 @@
 import Todo from "./todoCreator.js";
 import { events } from "./events.js";
 import { tasksArrays } from "../index.js";
+import deleteIcon from "../assets/delete-icon.svg";
+import editIcon from "../assets/edit-icon.svg";
 
 export default class Project {
     todoArr = [];
@@ -46,9 +48,21 @@ export function renderProject(projectObj) {
     projectDiv.setAttribute("id", projectObj.id);
     projectDiv.setAttribute("data-project-id", projectObj.id);
     projectDiv.innerText = projectObj.name;
-
     tasksArrays[projectObj.id] = projectObj.todoArr;
 
+    const buttonsContainer = document.createElement("div");
+    buttonsContainer.setAttribute("id", "options-container");
+    // Create copy of the edit and delete icons
+    const editIconCopy = new Image();
+    editIconCopy.src = editIcon;
+    editIconCopy.setAttribute("data-icon-type", "project-edit-icon");
+
+    const deleteIconCopy = new Image();
+    deleteIconCopy.src = deleteIcon;
+    deleteIconCopy.setAttribute("data-icon-type", "project-delete-icon");
+
+    buttonsContainer.append(editIconCopy, deleteIconCopy);
+    projectDiv.append(buttonsContainer);
     projectsInnerContainer.append(projectDiv);
 }
 
