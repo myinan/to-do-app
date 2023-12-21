@@ -283,7 +283,6 @@ form div:nth-child(4) {
 
 form div:last-child {
     gap: 10px;
-    margin-right: 50px;
 }
 
 form div:last-child  button {
@@ -337,4 +336,10 @@ input[type= "text"] {
 
 #options-container img:hover {
     cursor: pointer;
+}
+
+#edit-project-input {
+    height: 30px;
+    font-family: "Alata";
+    font-size: 1rem;
 }

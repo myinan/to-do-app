@@ -7,7 +7,7 @@ const dialog = document.querySelector(`dialog[id="edit-dialog"]`);
 const title = document.querySelector("#edit-title");
 const description = document.querySelector("#edit-description");
 const duedate = document.querySelector("#edit-duedate");
-const priorityRadios = document.querySelectorAll(`input[name="edit-priority-status"]`); // ????
+const priorityRadios = document.querySelectorAll(`input[name="edit-priority-status"]`);
 const defaultDuedate = "No Due Date";
 
 const cancelBtn = document.querySelector(`button[id="edit-cancelBtn"]`)

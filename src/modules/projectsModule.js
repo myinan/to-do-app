@@ -47,7 +47,10 @@ export function renderProject(projectObj) {
     const projectDiv = document.createElement("div");
     projectDiv.setAttribute("id", projectObj.id);
     projectDiv.setAttribute("data-project-id", projectObj.id);
-    projectDiv.innerText = projectObj.name;
+    const textContainer = document.createElement("div");
+    textContainer.setAttribute("id", "project-name");
+    textContainer.innerText = projectObj.name;
+    projectDiv.append(textContainer);
     tasksArrays[projectObj.id] = projectObj.todoArr;
 
     const buttonsContainer = document.createElement("div");

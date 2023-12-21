@@ -4,8 +4,8 @@ import { renderOnClick } from './modules/renderToMain.js';
 import { addProjectOnClick } from './modules/createProjectFunc.js';
 import { addTaskBtnClicked } from './modules/createTodoFunc.js';
 import { removeTodoOnClick } from './modules/removeTodoFunc.js';
-
 import { editTodoOnClick } from './modules/editTodoFunc.js';
+import { editProjectOnClick } from './modules/projectOptions.js';
 
 export const tasksArrays = {
     allTasks,
@@ -18,5 +18,5 @@ addProjectOnClick();
 renderOnClick();
 addTaskBtnClicked();
 removeTodoOnClick();
-
 editTodoOnClick();
+editProjectOnClick();
