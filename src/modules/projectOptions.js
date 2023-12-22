@@ -75,7 +75,6 @@ function projectRemoveClicked(event) {
             if (projectId == project.id) {
                 events.emit("projectRemoved", project);
                 projectsArr.splice(index, 1);
-                console.log(projectsArr);
             }
         })
 

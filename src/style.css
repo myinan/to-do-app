@@ -303,7 +303,7 @@ form div:last-child  button {
     background-color: #86efac;
 }
 
-input[type= "text"] {
+input[type="text"] {
     padding: 5px;
     font-size: 1.7rem;
     width: 400px;
