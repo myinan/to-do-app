@@ -48,7 +48,10 @@ function changeProjectName(event) {
 
             //Rerender project name
             currentProjectDiv.firstChild.textContent = project.name;
-            projectNameContainer.textContent = project.name;
+            const currentNode = document.querySelector(".inner-container-clicked");
+            if (currentNode.getAttribute("data-project-id") == selectedProject.id) {
+                projectNameContainer.textContent = project.name;
+            }
         }
     })
     editProjectForm.classList.add("hidden");
