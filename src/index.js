@@ -8,6 +8,8 @@ import { editTodoOnClick } from './modules/editTodoFunc.js';
 import { editProjectOnClick } from './modules/projectOptions.js';
 import { removeProjectOnClick } from './modules/projectOptions.js';
 
+const allTasksHeader = document.querySelector("#allTasks");
+
 export const tasksArrays = {
     allTasks,
     todayTasks,
@@ -22,3 +24,5 @@ removeTodoOnClick();
 editTodoOnClick();
 editProjectOnClick();
 removeProjectOnClick();
+
+allTasksHeader.click();

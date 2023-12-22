@@ -5,6 +5,8 @@ import { tasksArrays } from "./projectsModule.js";
 const mainTodoContainer = document.getElementById("todo-container");
 const sidebarContainer = document.querySelector(".sidebar-container");
 
+const projectNameContainer = document.querySelector(".project-name-container");
+
 function clear() {
     mainTodoContainer.innerHTML = "";
 }
@@ -89,8 +91,15 @@ function showAddTaskButton(event) {
     }
 }
 
+function showProjectName(event) {
+    if ( (event.target.classList.contains("inner-container-clicked") && event.target.parentNode.getAttribute("id", "home-inner-container")) ) {
+        projectNameContainer.innerText = event.target.innerText;
+    }
+}
+
 export function renderOnClick() {
     sidebarContainer.addEventListener("click", renderHomeTasks);
     sidebarContainer.addEventListener("click", stylizeClicked);
     sidebarContainer.addEventListener("click", showAddTaskButton);
+    sidebarContainer.addEventListener("click", showProjectName);
 }

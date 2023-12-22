@@ -6,6 +6,7 @@ import { events } from "./events";
 const editProjectForm = document.querySelector("#edit-project-form");
 const projectsContainer = document.querySelector("#projects-inner-container");
 const mainTodoContainer = document.querySelector("#todo-container");
+const projectNameContainer = document.querySelector(".project-name-container");
 
 const inputField = document.querySelector(`#edit-project-input`);
 const changeNameBtn = document.querySelector(`#edit-project-form  input[type="submit"]`);
@@ -47,6 +48,7 @@ function changeProjectName(event) {
 
             //Rerender project name
             currentProjectDiv.firstChild.textContent = project.name;
+            projectNameContainer.textContent = project.name;
         }
     })
     editProjectForm.classList.add("hidden");
@@ -79,6 +81,7 @@ function projectRemoveClicked(event) {
         })
 
         // Remove removed project from display and clean the mainContainer
+        projectNameContainer.innerHTML = "";
         mainTodoContainer.innerHTML = "";
         grandparentElement.remove();
     }
