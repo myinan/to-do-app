@@ -1,9 +1,11 @@
 import { projectsArr } from "./createProjectFunc";
+import { events } from "./events";
 
 
 // Edit the project name
 const editProjectForm = document.querySelector("#edit-project-form");
 const projectsContainer = document.querySelector("#projects-inner-container");
+const mainTodoContainer = document.querySelector("#todo-container");
 
 const inputField = document.querySelector(`#edit-project-input`);
 const changeNameBtn = document.querySelector(`#edit-project-form  input[type="submit"]`);
@@ -63,3 +65,26 @@ export function editProjectOnClick() {
 
 
 //Remove project
+function projectRemoveClicked(event) {
+    if ( event.target.getAttribute("data-icon-type") == "project-delete-icon") {
+        const parentElement = event.target.parentNode;
+        const grandparentElement = parentElement.parentNode;
+        const projectId = grandparentElement.getAttribute("data-project-id");
+
+        projectsArr.forEach((project, index) => {
+            if (projectId == project.id) {
+                events.emit("projectRemoved", project);
+                projectsArr.splice(index, 1);
+                console.log(projectsArr);
+            }
+        })
+
+        // Remove removed project from display and clean the mainContainer
+        mainTodoContainer.innerHTML = "";
+        grandparentElement.remove();
+    }
+}
+
+export function removeProjectOnClick() {
+    projectsContainer.addEventListener("click", projectRemoveClicked); // Delete-icon clicked
+}

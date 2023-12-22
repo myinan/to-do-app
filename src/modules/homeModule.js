@@ -19,8 +19,19 @@ function removeFromAllTasks(todoItem) {
     })
 }
 
+function checkIfProjectHadAnyAll(project) {
+    project.todoArr.forEach((projectTodo) => {
+        allTasks.forEach((todo, index) => {
+            if ( projectTodo.id == todo.id) {
+                allTasks.splice(index, 1);
+            }
+        })
+    })
+}
+
 events.on("todoAdded", addToAllTasks);
 events.on("todoRemoved", removeFromAllTasks);
+events.on("projectRemoved", checkIfProjectHadAnyAll);
 
 
 // "Today" header.
@@ -55,9 +66,20 @@ function checkIfToday(todoItem) {
     }
 }
 
+function checkIfProjectHadTodayTasks(project) {
+    project.todoArr.forEach((projectTodo) => {
+        todayTasks.forEach((todo, index) => {
+            if ( projectTodo.id == todo.id) {
+                todayTasks.splice(index, 1);
+            }
+        })
+    })
+}
+
 events.on("todoAdded", addToTodayTasks);
 events.on("todoRemoved", removeFromTodayTasks);
 events.on("todoEdited", checkIfToday);
+events.on("projectRemoved", checkIfProjectHadTodayTasks);
 
 
 // "Next 7 Days" header.
@@ -97,9 +119,20 @@ function checkIfInNextSevenDays(todoItem) {
     }
 }
 
+function checkIfProjectHadNextSeven(project) {
+    project.todoArr.forEach((projectTodo) => {
+        nextSevenDaysTasks.forEach((todo, index) => {
+            if ( projectTodo.id == todo.id) {
+                nextSevenDaysTasks.splice(index, 1);
+            }
+        })
+    })
+}
+
 events.on("todoAdded", addToNextSevenDaysTasks);
 events.on("todoRemoved", removeFromNextSevenDaysTasks);
-events.on("todoEdited", checkIfInNextSevenDays)
+events.on("todoEdited", checkIfInNextSevenDays);
+events.on("projectRemoved", checkIfProjectHadNextSeven);
 
 
 // "Important" header.
@@ -130,6 +163,17 @@ function checkIfImportant(todoItem) {
     }
 }
 
+function checkIfProjectHadImportant(project) {
+    project.todoArr.forEach((projectTodo) => {
+        importantTasks.forEach((todo, index) => {
+            if ( projectTodo.id == todo.id) {
+                importantTasks.splice(index, 1);
+            }
+        })
+    })
+}
+
 events.on("todoAdded", addToImportantTasks);
 events.on("todoRemoved", removeFromImportantTasks);
 events.on("todoEdited", checkIfImportant);
+events.on("projectRemoved", checkIfProjectHadImportant);

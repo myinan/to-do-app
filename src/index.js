@@ -6,6 +6,7 @@ import { addTaskBtnClicked } from './modules/createTodoFunc.js';
 import { removeTodoOnClick } from './modules/removeTodoFunc.js';
 import { editTodoOnClick } from './modules/editTodoFunc.js';
 import { editProjectOnClick } from './modules/projectOptions.js';
+import { removeProjectOnClick } from './modules/projectOptions.js';
 
 export const tasksArrays = {
     allTasks,
@@ -20,3 +21,4 @@ addTaskBtnClicked();
 removeTodoOnClick();
 editTodoOnClick();
 editProjectOnClick();
+removeProjectOnClick();
