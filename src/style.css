@@ -1,366 +1,384 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 @font-face {
-    font-family: "Alata";
-    src: url("assets/Alata-Regular.ttf");
+  font-family: "Alata";
+  src: url("assets/Alata-Regular.ttf");
 }
 
 :root {
-    --bg-color-main: #1f2937;
-    --bg-color-sidebar: #111827;
-    --header-border-color: #eed9c3;
-    --text-color: #e5e7eb;
-    --selected: #0f766e;
-    --accentGreen: #2abd67;
-    --accentDarkGreen: #1f8d4d;
-    --accentRed: red;
-    --accentDarkRed: rgb(190, 4, 4);
+  --bg-color-main: #1f2937;
+  --bg-color-sidebar: #111827;
+  --header-border-color: #eed9c3;
+  --text-color: #e5e7eb;
+  --selected: #0f766e;
+  --accentGreen: #2abd67;
+  --accentDarkGreen: #1f8d4d;
+  --accentRed: red;
+  --accentDarkRed: rgb(190, 4, 4);
 
-    background-color: var(--bg-color-main);
-    font-family: "Alata";
-    font-size: 16px;
-    color: var(--text-color);
+  background-color: var(--bg-color-main);
+  font-family: "Alata";
+  font-size: 16px;
+  color: var(--text-color);
 }
 
 body {
-    display: grid;
-    grid-template-rows: 80px 1fr;
-    grid-template-columns: 320px 1fr;
-    height: 100vh;
-    cursor: default;
+  display: grid;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 320px 1fr;
+  height: 100vh;
+  cursor: default;
 }
 
 h1 {
-    grid-area: 1 / 1 / 2 / 3;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-bottom: 2px solid var(--header-border-color);   
-    font-size: 3rem;
-    font-weight: 900;
+  grid-area: 1 / 1 / 2 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 2px solid var(--header-border-color);
+  font-size: 3rem;
+  font-weight: 900;
 }
 
 .sidebar-container {
-    grid-area: 2 / 1 / 3 / 2;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px 20px;
-    font-size: 1.5rem;
-    background-color: var(--bg-color-sidebar);
+  grid-area: 2 / 1 / 3 / 2;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px 20px;
+  font-size: 1.5rem;
+  background-color: var(--bg-color-sidebar);
 }
 
 .sidebar-container h2 {
-    border-bottom: 2px solid var(--header-border-color);
-    font-size: 2rem;
+  border-bottom: 2px solid var(--header-border-color);
+  font-size: 2rem;
 }
 
 .home-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 #home-inner-container > div {
-    display: flex;
-    gap: 10px;
-    align-items: center;
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 #home-inner-container img {
-    height: 27px;
-    width: 27px;
+  height: 27px;
+  width: 27px;
 }
 
 .inner-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 0px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0px 15px;
 }
 
 .inner-container > div {
-    padding: 2px 5px;
+  padding: 2px 5px;
 }
 
 .inner-container > div:not(.inner-container-clicked):hover {
-    background-color: var(--bg-color-main);
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: var(--bg-color-main);
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .inner-container-clicked {
-    background-color: var(--selected);
-    cursor: default;
-    border-radius: 5px;
+  background-color: var(--selected);
+  cursor: default;
+  border-radius: 5px;
 }
 
 .projects-container {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
 
 .main-container {
-    grid-area: 2 / 2 / 3 / 3;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding: 30px;
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 30px;
 }
 
 .main-container .todo-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .project-name-container {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: var(--header-border-color);
-    color: var(--bg-color-main);
-    font-size: 3rem;
-    padding: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: var(--header-border-color);
+  color: var(--bg-color-main);
+  font-size: 3rem;
+  padding: 15px;
 }
 
 .todo-item-container {
-    position: relative;
-    border: 1px solid var(--text-color);
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    height: fit-content;
-    padding: 5px 10px;
+  position: relative;
+  border: 1px solid var(--text-color);
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: fit-content;
+  padding: 5px 10px;
 }
 
 .todo-item-container:hover {
-    background-color: var(--bg-color-sidebar);
-    cursor: pointer;
+  background-color: var(--bg-color-sidebar);
+  cursor: pointer;
 }
 
 .info-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .info-container > p:nth-child(1) {
-    font-size: 1.5rem;
+  font-size: 1.5rem;
 }
 
 .right-inner-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: min-content;
-    gap: 15px;
-    font-size: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: min-content;
+  gap: 15px;
+  font-size: 1.2rem;
 }
 
 .right-inner-container img {
-    height: 1.5rem;
-    width: 1.5rem;
+  height: 1.5rem;
+  width: 1.5rem;
 }
 
 .project-add-button {
-    display: flex;
-    border: none;
-    background-color: var(--bg-color-sidebar);
-    color: var(--text-color);
-    font-family: "Alata";
-    font-size: 1.2rem;
-    gap: 10px;
-    align-items: center;
-    padding: 2px 5px;
+  display: flex;
+  border: none;
+  background-color: var(--bg-color-sidebar);
+  color: var(--text-color);
+  font-family: "Alata";
+  font-size: 1.2rem;
+  gap: 10px;
+  align-items: center;
+  padding: 2px 5px;
 }
 
 .project-add-button:hover {
-    background-color: var(--bg-color-main);
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: var(--bg-color-main);
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .project-add-button span {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .projects-container form {
-    font-family: "Alata";
-    font-size: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: center;
+  font-family: "Alata";
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
 }
 
 .input-buttons-container {
-    display: flex;
-    gap: 7px;
-    justify-content: center;
+  display: flex;
+  gap: 7px;
+  justify-content: center;
 }
 
 #project-input {
-    height: 30px;
-    font-family: "Alata";
-    font-size: 1rem;
+  height: 30px;
+  font-family: "Alata";
+  font-size: 1rem;
 }
 
 .input-buttons-container input {
-    font-family: "Alata";
-    font-size: 1rem;
-    padding: 5px;
-    border: none;
-    border-radius: 5px;
+  font-family: "Alata";
+  font-size: 1rem;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
 }
 
 .input-buttons-container input:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .input-buttons-container input:nth-child(1) {
-    background-color: var(--accentGreen);
+  background-color: var(--accentGreen);
 }
 
 .input-buttons-container input:nth-child(1):hover {
-    background-color: var(--accentDarkGreen);
+  background-color: var(--accentDarkGreen);
 }
 
 .input-buttons-container input:nth-child(2) {
-    background-color: var(--accentRed);
+  background-color: var(--accentRed);
 }
 
 .input-buttons-container input:nth-child(2):hover {
-    background-color: var(--accentDarkRed);
+  background-color: var(--accentDarkRed);
 }
 
 .hidden {
-    top: 0;
-    left: 0;
-    pointer-events: none !important;
-    position: absolute !important;
-    max-height: 0 !important;
-    opacity: 0 !important;
+  top: 0;
+  left: 0;
+  pointer-events: none !important;
+  position: absolute !important;
+  max-height: 0 !important;
+  opacity: 0 !important;
 }
 
 .task-add-button {
-    display: flex;
-    border: none;
-    background-color: var(--bg-color-main);
-    color: var(--text-color);
-    font-family: "Alata";
-    font-size: 1.2rem;
-    gap: 10px;
-    align-items: center;
-    padding: 2px 5px;
-    width: 20%;
-    border-radius: 10px;
+  display: flex;
+  border: none;
+  background-color: var(--bg-color-main);
+  color: var(--text-color);
+  font-family: "Alata";
+  font-size: 1.2rem;
+  gap: 10px;
+  align-items: center;
+  padding: 2px 5px;
+  width: 20%;
+  border-radius: 10px;
 }
 
 .task-add-button:hover {
-    background-color: var(--bg-color-sidebar);
-    cursor: pointer;
-    border-radius: 5px;
+  background-color: var(--bg-color-sidebar);
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .task-add-button span {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 dialog {
-    margin: auto auto;
-    border-radius: 10px;
-    background-color: #94a3b8;
+  margin: auto auto;
+  border-radius: 10px;
+  background-color: #94a3b8;
 }
 
 form {
-    padding: 25px;
-    display: flex;
-    flex-direction: column;
-    font-size: 1.7rem;
-    color: #0f172a;
-    background-color: #94a3b8;
-    gap: 10px;
-    justify-content: flex-end;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  font-size: 1.7rem;
+  color: #0f172a;
+  background-color: #94a3b8;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
-form  div {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    justify-content: flex-end;
+form div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
 }
 
 form div:nth-child(4) {
-    display: flex;
-    justify-content: space-around;
+  display: flex;
+  justify-content: space-around;
 }
 
 form div:last-child {
-    gap: 10px;
+  gap: 10px;
 }
 
-form div:last-child  button {
-    color: #0f172a;
-    cursor: pointer;
-    font-size: 1rem;
-    padding: 5px 25px;
-    border-radius: 10px;
-    background-color: #e2e8f0;
-    border: 0.5px solid black;
+form div:last-child button {
+  color: #0f172a;
+  cursor: pointer;
+  font-size: 1rem;
+  padding: 5px 25px;
+  border-radius: 10px;
+  background-color: #e2e8f0;
+  border: 0.5px solid black;
 }
 
 #cancelBtn:hover {
-    background-color: #fca5a5;
+  background-color: #fca5a5;
 }
 
 #confirmBtn:hover {
-    background-color: #86efac;
+  background-color: #86efac;
 }
 
 input[type="text"] {
-    padding: 5px;
-    font-size: 1.7rem;
-    width: 400px;
-    border-radius: 5px;
-    border: 0.5px solid black;
-
+  padding: 5px;
+  font-size: 1.7rem;
+  width: 400px;
+  border-radius: 5px;
+  border: 0.5px solid black;
 }
 
 ::backdrop {
-    background-color: black;
-    opacity: 0.7;
+  background-color: black;
+  opacity: 0.7;
 }
 
 .sidebar-container [data-project-id] {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 #options-container {
-    display: flex;
-    align-items: center;
-    gap: 7px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
 }
 
 #options-container img {
-    height: 22px;
-    width: 22px;
+  height: 22px;
+  width: 22px;
 }
 
 #options-container img:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 #edit-project-input {
-    height: 30px;
-    font-family: "Alata";
-    font-size: 1rem;
+  height: 30px;
+  font-family: "Alata";
+  font-size: 1rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
+  form div {
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 20px;
+  }
+
+  input[type="text"] {
+    width: 300px;
+  }
 }
